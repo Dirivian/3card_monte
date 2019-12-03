@@ -28,19 +28,19 @@
 You walk up to a busy city corner and spot a lone street-magician with three cards on a table.  Interested, you ask him what magic could possibly come out of these cards.  
 He flips over one of the cards and shows you a red queen of hearts.  
 
-**He proposes to you that if you can keep track of this queen of hearts ([card number:"Q" suit:"H"/]) you'll win a prize.**  [br/]
+**He asks you for $5. He proposes to you that if you can keep track of this queen of hearts ([card number:"Q" suit:"H"/]) he'll give you $10 back.**  [br/]
 
-Confident, you agree to the terms and in an instant he flips the cards over and shuffles the three cards multiple times, and stops, leaving you to select which card is the queen.
+So, you either lose $5 or win $5. To win, the chance that you pick the right card should be 50% or more. Confident in your abilities to track his hands, you agree to the terms and in an instant he flips the cards over and shuffles the three cards multiple times, and stops, leaving you to select which card is the queen.
 
 
 [aside]
 [The wikipedia page](https://en.wikipedia.org/wiki/Three-card_Monte) for three-card monte commonly refers it as a "short con" where the magician would hire accomplices, or shills, to rig the game.  
 
-This simulation aims to show how even a winning a fair game is random chance.[/aside]
+This simulation aims to show how even a winning a fair game is random chance after a few shuffles.[/aside]
 
 **So here's the question:**
 [br/]
-*How relevant is skill in winning this game as the number of shuffles the magician makes increases?*
+*How relevant is  your skill in winning tracking the cards as the number of shuffles the magician makes increases just a little?*
 
 ## Game Setup
 In a typical setup, three cards are laid out on a table, one of which is the "money card", in this case [card number:"Q" suit:"H"/], that if kept track of rewards a prize.  
@@ -69,6 +69,64 @@ Random equation display syntax:
 
 
 ## Let's play
+
+
+[var name:"iter" value:0 /]
+[var name:"flipvalue" value:0 /]
+[var name:"shufflevalue" value:1 /]
+[var name:"points" value:`[{x:0, y:52}]` /]
+[var name:"endPoints" value:`[]` /]
+
+[aside]
+You have riffled **[Display value:iter format:"d" /]** times.
+[br/]
+[button onClick:`if(points[points.length-1].y !== 1){ if (flipvalue == 1){flipvalue = 0}else{flipvalue = 1}; shufflevalue = 1}`]Flip[/button]
+[button onClick:`if(points[points.length-1].y !== 1){iter++;  shufflevalue = 0}`]Shuffle[/button]
+[multiRiffle iter:iter points:points ]Shuffle (x10)[/multiRiffle]
+[/aside]
+
+[cardVis iterVar:iter points:points flipswitch:flipvalue shuffleswitch:shufflevalue /]
+[var name:"shufflevalue" value:1 /]
+
+Here is a chart.
+
+[aside]
+Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button to try again.
+[button className:"clear" onClick:`endPoints.push([{iter:iter, position:-1}, {iter:iter, position:3}]); iter=-1; points=[{x:0, y:52}]; iter++;`]Clear[/button]
+[/aside]
+[positionChart iterVal:iter points:points endPoints:endPoints /]
+
+
+## Let's play with a higher accuracy
+
+
+[var name:"iter" value:0 /]
+[var name:"flipvalue" value:0 /]
+[var name:"shufflevalue" value:1 /]
+[var name:"points" value:`[{x:0, y:52}]` /]
+[var name:"endPoints" value:`[]` /]
+
+[aside]
+You have riffled **[Display value:iter format:"d" /]** times.
+[br/]
+[button onClick:`if(points[points.length-1].y !== 1){ if (flipvalue == 1){flipvalue = 0}else{flipvalue = 1}; shufflevalue = 1}`]Flip[/button]
+[button onClick:`if(points[points.length-1].y !== 1){iter++;  shufflevalue = 0}`]Shuffle[/button]
+[multiRiffle iter:iter points:points ]Shuffle (x10)[/multiRiffle]
+[/aside]
+
+[cardVis iterVar:iter points:points flipswitch:flipvalue shuffleswitch:shufflevalue /]
+[var name:"shufflevalue" value:1 /]
+
+Here is a chart.
+
+[aside]
+Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button to try again.
+[button className:"clear" onClick:`endPoints.push([{iter:iter, position:-1}, {iter:iter, position:3}]); iter=-1; points=[{x:0, y:52}]; iter++;`]Clear[/button]
+[/aside]
+[positionChart iterVal:iter points:points endPoints:endPoints /]
+
+
+## Let's play with variable accuracy
 
 
 [var name:"iter" value:0 /]
