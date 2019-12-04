@@ -11,7 +11,8 @@
     "d3": "^4.0.0",
     "d3-svg-annotation": "^2.2.5",
     "idyll": "^2.0.0",
-    "idyll-d3-component": "^2.0.0"
+    "idyll-d3-component": "^2.0.0",
+    "react-google-charts": "^3.0.15"
   },
   "devDependencies": {
     "gh-pages": "^0.12.0"
