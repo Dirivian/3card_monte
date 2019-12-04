@@ -11,12 +11,14 @@ class positionChart extends React.Component {
       'Right Probability'
     ]];
     for (let i = 0; this.props.pts && i < this.props.pts.length; i++) {
-      let point = [i+1];
-      this.props.pts[i].forEach(p => {
-        point.push(p);
-      })
+      let point = [(i+1).toString()];
+      point.push(this.props.pts[i]["p_0"]);
+      point.push(this.props.pts[i]["p_1"]);
+      point.push(this.props.pts[i]["p_2"]);
+
       data.push(point);
     }
+    console.log("--------------");
     console.log(data);
     return (
       <div className={"my-pretty-chart-container"}>

@@ -188,10 +188,10 @@ class cardVis extends D3Component {
 
       if (props.iterVar === 1) {
         var probability = [0,1,0];
-        console.log(probability)
+        // console.log(probability)
       }
         if (props.shuffleswitch == 0){
-          console.log(cards)
+          // console.log(cards)
           let randCardIndex = Math.floor(Math.random() * cards.length);
           if (randCardIndex == 0){
             var index_1 =1
@@ -259,9 +259,9 @@ class cardVis extends D3Component {
         const newXValue = props.iterVar;
         const newYValue = cards.indexOf('K♦') + 1;
         
-        console.log(props.probability)
+        // console.log(props.probability);
         
-        console.log(props.pts)
+        // console.log(props.pts);
         // console.log('updateprops');
         
 

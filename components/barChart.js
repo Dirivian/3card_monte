@@ -19,9 +19,9 @@ class barChart extends React.Component {
     ];
     if (this.props.pts) {
       let idx = this.props.shuffleIndex;
-      data.push(['Left', this.props.pts[idx][0], 'blue', null]);
-      data.push(['Middle', this.props.pts[idx][1], 'red', null]);
-      data.push(['Right', this.props.pts[idx][2], 'yellow', null]);
+      data.push(['Left', this.props.pts[idx]["p_0"], 'blue', null]);
+      data.push(['Middle', this.props.pts[idx]["p_1"], 'red', null]);
+      data.push(['Right', this.props.pts[idx]["p_2"], 'yellow', null]);
     }
 
     return (
@@ -38,6 +38,7 @@ class barChart extends React.Component {
             height: 400,
             bar: { groupWidth: '95%' },
             legend: { position: 'none' },
+            vAxis: { maxValue: '1.0' },
           }}
           // For tests
           rootProps={{ 'data-testid': '6' }}
