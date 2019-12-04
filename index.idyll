@@ -83,7 +83,7 @@ Random equation display syntax:
 
 
 [aside]
-You have riffled **[Display value:iter format:"d" /]** times.
+You have shuffled **[Display value:iter format:"d" /]** times.
 [var name:"shuffleIndex" value:0 /]
 [Range value:shuffleIndex min:0 max:iter step:1 /]
 [Display value:shuffleIndex /]
@@ -105,11 +105,11 @@ Shuffle Index:
 Here is a chart.
 
 [aside]
-Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button to try again.
-[button className:"clear" onClick:`endPoints.push([{iter:iter, position:-1}, {iter:iter, position:3}]); iter=-1; points=[{x:0, y:52}]; iter++;`]Clear[/button]
+[button className:"clear" onClick:`iter= 0; pts = []; probability = [0,1,0]; points = [{x:0,y:52}];flipvalue = 0; shufflevalue =1`]Clear[/button]
+[barChart pts:pts shuffleIndex:shuffleIndex/]
 [/aside]
 [positionChart iterVal:iter endPoints:endPoints probability:probability pts:pts accuracy:accuracy/]
-[barChart pts:pts shuffleIndex:shuffleIndex/]
+
 
 
 ## Let's play with a higher accuracy
@@ -125,7 +125,7 @@ Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button
 [var name:"pts1" value:`[{p_0:0, p_1:1, p_2: 0}]` /]
 
 [aside]
-You have riffled **[Display value:iter1 format:"d" /]** times.
+You have shuffled **[Display value:iter1 format:"d" /]** times.
 [br/]
 [button onClick:`if(points1[points1.length-1].y !== 1){ if (flipvalue1 == 1){flipvalue1 = 0}else{flipvalue1 = 1}; shufflevalue1 = 1}`]Flip[/button]
 [button onClick:`if(points1[points1.length-1].y !== 1){iter1++;  shufflevalue1 = 0}`]Shuffle[/button]
@@ -137,10 +137,10 @@ You have riffled **[Display value:iter1 format:"d" /]** times.
 Here is a chart.
 
 [aside]
-Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button to try again.
-[button className:"clear" onClick:`endPoints1.push([{iter:iter1, position1:-1}, {iter:iter1, position1:3}]); iter1=-1; points1=[{x:0, y:52}]; iter1++;`]Clear[/button]
+[button className:"clear" onClick:`iter1= 0; pts1 = []; probability1 = [0,1,0]; points1 = [{x:0,y:52}];flipvalue1 = 0; shufflevalue1 =1`]Clear[/button]
+[barChart pts:pts1 shuffleIndex:shuffleIndex/]
 [/aside]
-[positionChart iterVal:iter1 points:points1 endPoints:endPoints1 /]
+[positionChart iterVal:iter1 endPoints:endPoints1 probability:probability1 pts:pts1 accuracy:accuracy1/]
 
 
 ## Let's play with variable accuracy
@@ -157,26 +157,27 @@ Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button
 [var name:"probability2" value:`[0,1,0]` /]
 
 [aside]
+Accuracy:
 [var name:"acc" value:0.5 /]
-[Range value:acc min:0 max:0.9 step:0.01 /]
+[Range value:acc min:0 max:0.9 step:0.01 onClick:`iter2= 0; pts2 = []; probability2 = [0,1,0]; points2 = [{x:0,y:52}];flipvalue2 = 0; shufflevalue2 =1`/]
 [Display value:acc /]
 [br/]
-You have riffled **[Display value:iter2 format:"d" /]** times.
+You have shuffled **[Display value:iter2 format:"d" /]** times.
 [br/]
 [button onClick:`if(points2[points2.length-1].y !== 1){ if (flipvalue2 == 1){flipvalue2 = 0}else{flipvalue2 = 1}; shufflevalue2 = 1}`]Flip[/button]
 [button onClick:`if(points2[points2.length-1].y !== 1){iter2++;  shufflevalue2 = 0}`]Shuffle[/button]
 [/aside]
 
-[cardVis iterVar:iter2 points:points2 flipswitch:flipvalue2 shuffleswitch:shufflevalue2  probability:probability2 pts:pts2 accuracy:accuracy2/]
+[cardVis iterVar:iter2 points:points2 flipswitch:flipvalue2 shuffleswitch:shufflevalue2  probability:probability2 pts:pts2 accuracy:acc/]
 [var name:"shufflevalue2" value:1 /]
 
 Here is a chart.
 
 [aside]
-Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button to try again.
-[button className:"clear" onClick:`endPoints2.push([{iter:iter2, position2:-1}, {iter:iter2, position2:3}]); iter2=-1; points2=[{x:0, y:52}]; iter2++;`]Clear[/button]
+[button className:"clear" onClick:`iter2 = 0; pts2 = []; probability2 = [0,1,0]; points2 = [{x:0,y:52}];flipvalue2 = 0; shufflevalue2 =1`]Clear[/button]
+[barChart pts:pts2 shuffleIndex:shuffleIndex/]
 [/aside]
-[positionChart iterVal:iter2 points:points2 endPoints:endPoints2 /]
+[positionChart iterVal:iter2 endPoints:endPoints2 probability:probability2 pts:pts2 accuracy:acc/]
 
 
 ### Acknowledgements
