@@ -24,6 +24,7 @@ function makeCards(suits, cardPrimitives) {
 
 let cards = makeCards(suits, cardPrimitives);
 
+
 class cardVis extends D3Component {
 
   initialize(node, props) {
@@ -76,7 +77,6 @@ class cardVis extends D3Component {
       .attr('stroke-width', 1)
     // .on('mouseover', function(d) { d3.select(this).attr('fill', '#F0F0F0'); })
     // .on('mouseout', function(d) { d3.select(this).attr('fill', '#FFFFFF'); });
-
     svg.selectAll('text')
       .data(cards)
       .enter()
@@ -121,12 +121,12 @@ class cardVis extends D3Component {
 
       if (props.iterVar === 0) {
         cards = makeCards(suits, cardPrimitives);
-        // console.log(cards)
       }
-
+      
       let lastPoint = props.points[props.points.length - 1];
 
-      if (lastPoint.y !== 1) {          let randCardIndex = Math.floor(Math.random() * cards.length);
+      if (lastPoint.y !== 1) {          
+        let randCardIndex = Math.floor(Math.random() * cards.length);
         propsUpdated = true;
 
         // console.log('riffle', props.iterVar);
@@ -146,7 +146,7 @@ class cardVis extends D3Component {
             var index_1 =0
             var index_2 =1
            }
-           console.log(index_1, index_2 )
+
 
           let a = cards[index_1]
           cards[index_1] = cards[index_2]
@@ -155,19 +155,19 @@ class cardVis extends D3Component {
         }
 
         if (props.shuffleswitch == 0){
-            console.log('idea')
+            console.log('shuffling')
         }
         if (props.flipswitch == 1){
           this.svg.selectAll('.card')
           .data(cards)
           .transition()
-          .duration(2000)
+          .duration(1000)
           .attr('fill', 'teal')
 
         this.svg.selectAll('.card-text')
           .data(cards)
           .transition()
-          .duration(2000)
+          .duration(1000)
           .text(function (d) { return d; })
           .style( "opacity", 0 )
           }
@@ -175,18 +175,21 @@ class cardVis extends D3Component {
           this.svg.selectAll('.card')
           .data(cards)
           .transition()
-          .duration(2000)
+          .duration(1000)
           .attr('fill', 'transparent')
 
         this.svg.selectAll('.card-text')
           .data(cards)
           .transition()
-          .duration(2000)
+          .duration(1000)
           .text(function (d) { return d; })
           .style( "opacity", 1 )
         }
 
-
+      if (props.iterVar === 1) {
+        var probability = [0,1,0];
+        console.log(probability)
+      }
         if (props.shuffleswitch == 0){
           console.log(cards)
           let randCardIndex = Math.floor(Math.random() * cards.length);
@@ -233,7 +236,6 @@ class cardVis extends D3Component {
                             }
                         })
           cards = riffle(cards, randCardIndex)
-          console.log(cards)
           this.svg.selectAll('.card')
                   .data(cards)
 
@@ -250,7 +252,16 @@ class cardVis extends D3Component {
 
         const newXValue = props.iterVar;
         const newYValue = cards.indexOf('K♦') + 1;
+        var acc = 0.8
+        
+        var prob_1 = props.probability[index_1]
+        var prob_2 = props.probability[index_2]
+
+        props.probability[index_1] = (1-acc)*prob_1 + acc*prob_2
+        props.probability[index_2] = (1-acc)*prob_2 + acc*prob_1
+        console.log(props.probability)
         // console.log('updateprops');
+        
 
         // Make sure you put this code in a conditional
         // so that it doesn't loop infinitely
