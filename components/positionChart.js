@@ -28,7 +28,7 @@ class positionChart extends React.Component {
           chartType="Line"
           loader={<div>Loading Chart</div>}
           data={ data }
-          options={{
+          options={{ 
             chart: {
               title: 'Probabilities of Winning Card',
               subtitle: 'as shuffle number increases',

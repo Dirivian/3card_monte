@@ -27,7 +27,7 @@
 
 You walk up to a busy city corner and spot a lone street-magician with three cards on a table.  Interested, you ask him what magic could possibly come out of these cards.  
 He flips over one of the cards and shows you a red queen of hearts.  
-
+ 
 **He asks you for $5. He proposes to you that if you can keep track of this queen of hearts ([card number:"Q" suit:"H"/]) he'll give you $10 back.**  [br/]
 
 So, you either lose $5 or win $5. To win, the chance that you pick the right card should be 50% or more. Confident in your abilities to track his hands, you agree to the terms and in an instant he flips the cards over and shuffles the three cards multiple times, and stops, leaving you to select which card is the queen.
@@ -75,14 +75,7 @@ Random equation display syntax:
 [var name:"flipvalue" value:0 /]
 [var name:"accuracy" value:0.6 /]
 [var name:"shufflevalue" value:1 /]
-<<<<<<< HEAD
 [var name:"points" value:`[{x:0,y:52}]`/]
-||||||| merged common ancestors
-[var name:"points" value:`[{x:0, y:52}]` /]
-=======
-[var name:"points" value:`[{x:0,y:52}]`/]
-[var name:"pts" value:`[[0, 1, 0], [.3, .3, .3], [.4, .6, .7]]` /]
->>>>>>> e971de541320c173c5065c26e7e2d44cbba146c8
 [var name:"endPoints" value:`[]` /]
 [var name:"probability" value:`[0,1,0]` /]
 [var name:"pts" value:`[{p_0:0, p_1:1, p_2: 0}]` /]
@@ -115,16 +108,8 @@ Here is a chart.
 Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button to try again.
 [button className:"clear" onClick:`endPoints.push([{iter:iter, position:-1}, {iter:iter, position:3}]); iter=-1; points=[{x:0, y:52}]; iter++;`]Clear[/button]
 [/aside]
-<<<<<<< HEAD
 [positionChart iterVal:iter endPoints:endPoints probability:probability pts:pts accuracy:accuracy/]
 [barChart pts:pts shuffleIndex:shuffleIndex/]
-||||||| merged common ancestors
-[positionChart iterVal:iter points:points endPoints:endPoints probability:probability/]
-=======
-// [positionChart iterVal:iter points:points endPoints:endPoints probability:probability/]
-[positionChart pts:pts /]
-[barChart pts:pts shuffleIndex:shuffleIndex/]
->>>>>>> e971de541320c173c5065c26e7e2d44cbba146c8
 
 
 ## Let's play with a higher accuracy
