@@ -75,13 +75,18 @@ Random equation display syntax:
 [var name:"flipvalue" value:0 /]
 [var name:"accuracy" value:0.6 /]
 [var name:"shufflevalue" value:1 /]
-[var name:"points" value:`[{x:0, y:52}]` /]
+[var name:"points" value:`[{x:0,y:52}]`/]
+[var name:"pts" value:`[[0, 1, 0], [.3, .3, .3], [.4, .6, .7]]` /]
 [var name:"endPoints" value:`[]` /]
 [var name:"probability" value:`[0,1,0]` /]
 [var name:"pts" value:`[{p_0:0, p_1:1, p_2: 0}]` /]
 
+
 [aside]
 You have riffled **[Display value:iter format:"d" /]** times.
+[var name:"shuffleIndex" value:0 /]
+[Range value:shuffleIndex min:0 max:iter step:1 /]
+[Display value:shuffleIndex /]
 [br/]
 [button onClick:`if(points[points.length-1].y !== 1){ if (flipvalue == 1){flipvalue = 0}else{flipvalue = 1}; shufflevalue = 1}`]Flip[/button]
 [button onClick:`if(points[points.length-1].y !== 1){iter++;  shufflevalue = 0}`]Shuffle[/button]
@@ -97,7 +102,8 @@ Here is a chart.
 Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button to try again.
 [button className:"clear" onClick:`endPoints.push([{iter:iter, position:-1}, {iter:iter, position:3}]); iter=-1; points=[{x:0, y:52}]; iter++;`]Clear[/button]
 [/aside]
-[positionChart iterVal:iter points:points endPoints:endPoints probability:probability pts:pts accuracy:accuracy/]
+[positionChart iterVal:iter pts:pts endPoints:endPoints probability:probability pts:pts accuracy:accuracy/]
+[barChart pts:pts shuffleIndex:shuffleIndex/]
 
 
 ## Let's play with a higher accuracy
@@ -134,6 +140,7 @@ Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button
 ## Let's play with variable accuracy
 
 
+
 [var name:"iter2" value:0 /]
 [var name:"flipvalue2" value:0 /]
 [var name:"accuracy2" value:0.6 /]
@@ -144,6 +151,10 @@ Once the [card number:"K" suit:"D"/] is the top card, click the **Clear** button
 [var name:"probability2" value:`[0,1,0]` /]
 
 [aside]
+[var name:"acc" value:0.5 /]
+[Range value:acc min:0 max:0.9 step:0.01 /]
+[Display value:acc /]
+[br/]
 You have riffled **[Display value:iter2 format:"d" /]** times.
 [br/]
 [button onClick:`if(points2[points2.length-1].y !== 1){ if (flipvalue2 == 1){flipvalue2 = 0}else{flipvalue2 = 1}; shufflevalue2 = 1}`]Flip[/button]
