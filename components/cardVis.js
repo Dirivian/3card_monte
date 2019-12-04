@@ -205,10 +205,11 @@ class cardVis extends D3Component {
             var index_1 =0
             var index_2 =1
            }
+          var acc = this.props.accuracy
           this.svg.selectAll('.card')
                   .data(cards)
                   .transition()
-                  .duration(200)
+                  .duration(acc*1000)
                   .attr('x', function (d, i) {
                     if (i == randCardIndex)
                       {return 30 + i % 13 * 135;}
@@ -248,18 +249,19 @@ class cardVis extends D3Component {
                   .attr('x', function (d, i) {
                     return 35 + i % 13 * 135;}
                         )
-          }
-
-        const newXValue = props.iterVar;
-        const newYValue = cards.indexOf('K♦') + 1;
-        var acc = 0.8
-        
         var prob_1 = props.probability[index_1]
         var prob_2 = props.probability[index_2]
 
         props.probability[index_1] = (1-acc)*prob_1 + acc*prob_2
         props.probability[index_2] = (1-acc)*prob_2 + acc*prob_1
+          }
+
+        const newXValue = props.iterVar;
+        const newYValue = cards.indexOf('K♦') + 1;
+        
         console.log(props.probability)
+        
+        console.log(props.pts)
         // console.log('updateprops');
         
 
@@ -270,7 +272,15 @@ class cardVis extends D3Component {
             x: newXValue,
             y: newYValue
           }])
+          ,
+          pts: props.pts.concat([{
+            p_0: props.probability[0],
+            p_1: props.probability[1],
+            p_2: props.probability[2]
+          }])
         });
+
+
       }
     } else {
       propsUpdated = false;
