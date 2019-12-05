@@ -125,8 +125,17 @@ class cardVis extends D3Component {
       
       let lastPoint = props.points[props.points.length - 1];
 
-      if (lastPoint.y !== 1) {          
-        let randCardIndex = Math.floor(Math.random() * cards.length);
+      if (lastPoint.y !== 1) {  
+        if (props.iterVar == 1){
+          if (Math.random()<0.5){var randCardIndex = 0}
+            else{var randCardIndex = 2}
+        console.log(randCardIndex,234)  
+        } 
+        else{       
+        var randCardIndex = Math.floor(Math.random() * cards.length);
+
+      }
+
         propsUpdated = true;
 
         // console.log('riffle', props.iterVar);
@@ -224,7 +233,7 @@ class cardVis extends D3Component {
                 this.svg.selectAll('.card-text')
                   .data(cards)
                   .transition()
-                  .duration(200)
+                  .duration(acc*1000)
                   .text(function (d) { return d; })
                   .attr('x', function (d, i) {
                     if (i == randCardIndex)
@@ -254,19 +263,7 @@ class cardVis extends D3Component {
 
         props.probability[index_1] = (1-acc)*prob_1 + acc*prob_2
         props.probability[index_2] = (1-acc)*prob_2 + acc*prob_1
-          }
 
-        const newXValue = props.iterVar;
-        const newYValue = cards.indexOf('K♦') + 1;
-        
-        // console.log(props.probability);
-        
-        // console.log(props.pts);
-        // console.log('updateprops');
-        
-
-        // Make sure you put this code in a conditional
-        // so that it doesn't loop infinitely
         props.updateProps({
           points: props.points.concat([{
             x: newXValue,
@@ -280,6 +277,21 @@ class cardVis extends D3Component {
           }])
         });
 
+          }
+
+        const newXValue = props.iterVar;
+        const newYValue = cards.indexOf('K♦') + 1;
+
+        
+        // console.log(props.probability);
+        
+         console.log(props.pts);
+        // console.log('updateprops');
+        
+
+        // Make sure you put this code in a conditional
+        // so that it doesn't loop infinitely
+        
 
       }
     } else {
