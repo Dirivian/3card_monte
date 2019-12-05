@@ -27,22 +27,29 @@ class barChart extends React.Component {
     return (
       <div className={"my-pretty-chart-container"}>
         <Chart
-          width={'500px'}
-          height={'300px'}
+          width={'700px'}
+          height={'400px'}
           chartType="ColumnChart"
           loader={<div>Loading Chart</div>}
           data={ data }
           options={{
-            title: 'Probability of each card being the winning card',
-            width: 600,
-            height: 400,
+            title: 'Probabilities of Each Card Being the Winning Card',
+            titleTextStyle: { fontSize: 20, },
             bar: { groupWidth: '95%' },
             legend: { position: 'none' },
-            vAxis: { maxValue: '1.0' },
+            hAxis: {
+              title: 'Number of shuffles',
+            },
+            vAxis: {
+              title: 'Probability',
+              format: 'percent',
+              maxValue: '1.0',
+            },
             animation:{
               duration: 400,
               easing: 'out',
             },
+            chartArea: { width: "80%", height: "80%" },
           }}
           // For tests
           rootProps={{ 'data-testid': '6' }}

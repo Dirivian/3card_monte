@@ -23,16 +23,23 @@ class positionChart extends React.Component {
     return (
       <div className={"my-pretty-chart-container"}>
         <Chart
-          width={'600px'}
+          width={'700px'}
           height={'400px'}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
           data={ data }
           options={{ 
-            chart: {
-              title: 'Probabilities of Winning Card',
-              subtitle: 'as shuffle number increases',
+            title: 'Probabilities of Each Card Being the Winning Card',
+            titleTextStyle: { fontSize: 20, },
+            legend: { position: 'top' },
+            hAxis: {
+              title: 'Number of shuffles',
             },
+            vAxis: {
+              title: 'Probability',
+              format: 'percent',
+            },
+            chartArea: { width: "80%", height: "80%" },
             pointSize: 8,
             pointShape: 'circle',
             animation:{

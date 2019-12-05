@@ -97,10 +97,9 @@ You have shuffled **[Display value:iter format:"d" /]** times.
 [button onClick:`if(points[points.length-1].y !== 1){iter++;  shufflevalue = 0; shuffleIndex=iter}`]Shuffle[/button]
 [multiRiffle iter:iter points:points ]Shuffle (x10)[/multiRiffle]
 [p ]
-Shuffle Index: [br /]
+Shuffle Index: [Display value:`shuffleIndex.toFixed(0)` /] [br /] 
 [var name:"shuffleIndex" value:0 /]
 [Range value:shuffleIndex min:0 max:iter step:1 /]
-[Display value:shuffleIndex /]
 [/p]
 [/aside]
 
