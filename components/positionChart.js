@@ -11,7 +11,7 @@ class positionChart extends React.Component {
       'Right Probability'
     ]];
     for (let i = 0; this.props.pts && i < this.props.pts.length; i++) {
-      let point = [(i+1).toString()];
+      let point = [(i).toString()];
       point.push(this.props.pts[i]["p_0"]);
       point.push(this.props.pts[i]["p_1"]);
       point.push(this.props.pts[i]["p_2"]);
@@ -25,13 +25,19 @@ class positionChart extends React.Component {
         <Chart
           width={'600px'}
           height={'400px'}
-          chartType="Line"
+          chartType="LineChart"
           loader={<div>Loading Chart</div>}
           data={ data }
           options={{ 
             chart: {
               title: 'Probabilities of Winning Card',
               subtitle: 'as shuffle number increases',
+            },
+            pointSize: 8,
+            pointShape: 'circle',
+            animation:{
+              duration: 400,
+              easing: 'out',
             },
           }}
           rootProps={{ 'data-testid': '3' }}

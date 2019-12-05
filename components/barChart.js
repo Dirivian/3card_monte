@@ -33,12 +33,16 @@ class barChart extends React.Component {
           loader={<div>Loading Chart</div>}
           data={ data }
           options={{
-            title: 'Density of Precious Metals, in g/cm^3',
+            title: 'Probability of each card being the winning card',
             width: 600,
             height: 400,
             bar: { groupWidth: '95%' },
             legend: { position: 'none' },
             vAxis: { maxValue: '1.0' },
+            animation:{
+              duration: 400,
+              easing: 'out',
+            },
           }}
           // For tests
           rootProps={{ 'data-testid': '6' }}

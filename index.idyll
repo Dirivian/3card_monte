@@ -92,15 +92,12 @@ Imagine you had decent accuracy at tracking the shuffles. Say your accuracy is 0
 
 [aside]
 You have shuffled **[Display value:iter format:"d" /]** times.
-[var name:"shuffleIndex" value:0 /]
-[Range value:shuffleIndex min:0 max:iter step:1 /]
-[Display value:shuffleIndex /]
 [br/]
 [button onClick:`if(points[points.length-1].y !== 1){ if (flipvalue == 1){flipvalue = 0}else{flipvalue = 1}; shufflevalue = 1}`]Flip[/button]
-[button onClick:`if(points[points.length-1].y !== 1){iter++;  shufflevalue = 0}`]Shuffle[/button]
+[button onClick:`if(points[points.length-1].y !== 1){iter++;  shufflevalue = 0; shuffleIndex=iter}`]Shuffle[/button]
 [multiRiffle iter:iter points:points ]Shuffle (x10)[/multiRiffle]
 [p ]
-Shuffle Index:
+Shuffle Index: [br /]
 [var name:"shuffleIndex" value:0 /]
 [Range value:shuffleIndex min:0 max:iter step:1 /]
 [Display value:shuffleIndex /]
@@ -113,7 +110,7 @@ Shuffle Index:
 Here is a chart.
 
 [aside]
-[button className:"clear" onClick:`iter= 0; pts = []; probability = [0,1,0]; points = [{x:0,y:52}];flipvalue = 0; shufflevalue =1`]Clear[/button]
+[button className:"clear" onClick:`{iter= 0; pts = []; probability = [0,1,0]; points = [{x:0,y:52}];flipvalue = 0; shufflevalue =1; shuffleIndex=iter}`]Clear[/button]
 [barChart pts:pts shuffleIndex:shuffleIndex/]
 [/aside]
 [positionChart iterVal:iter endPoints:endPoints probability:probability pts:pts accuracy:accuracy/]
