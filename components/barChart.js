@@ -4,7 +4,7 @@ import { Chart } from "react-google-charts";
 
 class barChart extends React.Component {
   render() {
-    let data = [
+    var data = [
       [
         'Card Position',
         'Probability',
@@ -17,8 +17,16 @@ class barChart extends React.Component {
         },
       ]
     ];
-    if (this.props.pts) {
-      let idx = this.props.shuffleIndex;
+    
+    console.log(this.props.pts)
+    if (this.props.pts && this.props.pts.length === 0) {
+      data.push(['Left', 0, 'blue', null]);
+      data.push(['Middle', 1, 'red', null]);
+      data.push(['Right', 0, 'yellow', null]);
+    }
+    else if (this.props.pts) {
+      var idx = this.props.shuffleIndex;
+      console.log(idx)
       data.push(['Left', this.props.pts[idx]["p_0"], 'blue', null]);
       data.push(['Middle', this.props.pts[idx]["p_1"], 'red', null]);
       data.push(['Right', this.props.pts[idx]["p_2"], 'yellow', null]);

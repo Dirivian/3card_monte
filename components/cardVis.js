@@ -264,18 +264,7 @@ class cardVis extends D3Component {
         props.probability[index_1] = (1-acc)*prob_1 + acc*prob_2
         props.probability[index_2] = (1-acc)*prob_2 + acc*prob_1
 
-        props.updateProps({
-          points: props.points.concat([{
-            x: newXValue,
-            y: newYValue
-          }])
-          ,
-          pts: props.pts.concat([{
-            p_0: props.probability[0],
-            p_1: props.probability[1],
-            p_2: props.probability[2]
-          }])
-        });
+
 
           }
 
@@ -288,7 +277,18 @@ class cardVis extends D3Component {
          console.log(props.pts);
         // console.log('updateprops');
         
-
+        props.updateProps({
+          points: props.points.concat([{
+            x: newXValue,
+            y: newYValue
+          }])
+          ,
+          pts: props.pts.concat([{
+            p_0: props.probability[0],
+            p_1: props.probability[1],
+            p_2: props.probability[2]
+          }])
+        });
         // Make sure you put this code in a conditional
         // so that it doesn't loop infinitely
         

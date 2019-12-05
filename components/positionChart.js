@@ -18,8 +18,8 @@ class positionChart extends React.Component {
 
       data.push(point);
     }
-    console.log("--------------");
-    console.log(data);
+    // console.log("--------------");
+    // console.log(data);
     return (
       <div className={"my-pretty-chart-container"}>
         <Chart
