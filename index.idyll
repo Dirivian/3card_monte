@@ -28,7 +28,7 @@
 You walk up to a busy city corner and spot a lone street-magician with three cards on a table.  Interested, you ask him what magic could possibly come out of these cards.  
 He flips over one of the cards and shows you an ace of spades.  
  
-**He asks you for $5. He proposes to you that if you can keep track of this queen of hearts ([card number:"Q" suit:"H"/]) he'll give you $10 back.**  [br/]
+**He asks you for $5. He proposes to you that if you can keep track of this queen of hearts ([card number:"2" suit:"S"/]) he'll give you $10 back.**  [br/]
 
 So, you either lose $5 or win $5. To win at this game, you would need to pick the right card with a probability of 50% or more. Confident in your abilities to track his hands, you believe that will help you have a higher probability of picking the right card. So, you agree to the terms and in an instant he flips the cards over and shuffles the three cards multiple times, and stops, leaving you to select which card is the queen.
 
@@ -47,7 +47,7 @@ In a typical setup, three cards are laid out on a table, one of which is the "mo
 
 Selecting one of the other two cards means you lose your bet. 
 
-Let's say the two loser cards are [card number:"2" suit:"S"/], [card number:"2" suit:"S"/], and as previously mentioned, the "money card" is the [card number:"A" suit:"S"/].
+Let's say the two loser cards are [card number:"2" suit:"S"/], [card number:"3" suit:"S"/], and as previously mentioned, the "money card" is the [card number:"A" suit:"S"/].
 
 So the game setup looks like this:
 
@@ -156,6 +156,46 @@ Here is a chart.
 [positionChart iterVal:iter1 endPoints:endPoints1 probability:probability1 pts:pts1 accuracy:accuracy1/]
 
 
-You see that regardless of your accuracy it only takes a few more shuffles until the magician takes the advantages from you.
+You see that regardless of your accuracy it only takes a few more shuffles until the magician takes the advantage from you.
+
+
+You can play more below by changing the accuracy below, restarting and trying new simulations.
+
+
+## Let's play with a variable accuracy
+
+
+[var name:"iter2" value:0 /]
+[var name:"flipvalue2" value:0 /]
+[var name:"shufflevalue2" value:1 /]
+[var name:"points2" value:`[{x:0, y:52}]` /]
+[var name:"endPoints2" value:`[]` /]
+[var name:"probability2" value:`[0,1,0]` /]
+[var name:"pts2" value:`[{p_0:0, p_1:1, p_2: 0}]` /]
+[var name:"accuracy2" value: 0.8/]
+Accuracy: [TextInput value:accuracy2 /] [button className:"Clear" onClick:`iter2= 0; pts2 = []; probability2 = [0,1,0]; points2 = [{x:0,y:52}];flipvalue2 = 0; shufflevalue2 =1;shuffleIndex2=0`]Restart[/button]
+
+[aside]
+You have shuffled **[Display value:iter2 format:"d" /]** times.
+[br/]
+[button onClick:`if (flipvalue2 == 1){flipvalue2 = 0}else{flipvalue2 = 1}; shufflevalue2 = 1`]Flip[/button]
+[button onClick:`console.log('rrrr');iter2++;  shufflevalue2 = 0; shuffleIndex2=iter2`]Shuffle[/button]
+[p ]
+Shuffle Index: [Display value:`shuffleIndex1.toFixed(0)` /] [br /] 
+[var name:"shuffleIndex2" value:0 /]
+[Range value:shuffleIndex2 min:0 max:iter2 step:1 /]
+[/p]
+[/aside]
+
+[cardVis iterVar:iter2 points:points2 flipswitch:flipvalue2 shuffleswitch:shufflevalue2 probability:probability2 pts:pts2 accuracy:accuracy2/]
+[var name:"shufflevalue2" value:1 /]
+
+Here is a chart.
+
+[aside]
+[button className:"clear" onClick:`iter2= 0; pts2 = []; probability2 = [0,1,0]; points2 = [{x:0,y:52}];flipvalue2 = 0; shufflevalue2 =1;shuffleIndex2=0`]Clear[/button]
+[barChart pts:pts2 shuffleIndex:shuffleIndex2/]
+[/aside]
+[positionChart iterVal:iter2 endPoints:endPoints2 probability:probability2 pts:pts2 accuracy:accuracy2/]
 
 
