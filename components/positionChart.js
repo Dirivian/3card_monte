@@ -21,7 +21,10 @@ class positionChart extends React.Component {
     // console.log("--------------");
     // console.log(data);
     return (
-      <div className={"my-pretty-chart-container"}>
+      <div className={"position-container"}>
+        <svg className={"probability-line"}>
+          <line x1="0" y1="0" x2="1000" y2="0" transform="translate(70, 200)"  stroke="#DC3912" stroke-width="2" stroke-dasharray="10 4" />
+        </svg>
         <Chart
           width={'700px'}
           height={'400px'}
@@ -31,6 +34,7 @@ class positionChart extends React.Component {
           options={{ 
             title: 'Probabilities of Each Card Being the Winning Card',
             titleTextStyle: { fontSize: 20, },
+            colors: ['#FF9900', '#3366CC', '#109618'],
             legend: { position: 'top' },
             hAxis: {
               title: 'Number of shuffles',

@@ -89,3 +89,20 @@ blockquote {
 		margin-left: 0 !important;
 	}
 }
+
+.position-container {
+	width: 700px;
+	height: 400px;
+}
+
+.bar-container {
+	width: 700px;
+	height: 400px;
+}
+
+.probability-line {
+	position: absolute;
+	height: 400px;
+	width: 630px;
+	z-index: 1;
+}
