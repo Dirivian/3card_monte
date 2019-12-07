@@ -30,7 +30,7 @@ He flips over one of the cards and shows you an ace of spades.
  
 **He asks you for $5. He proposes to you that if you can keep track of this ace of spades ([card number:"A" suit:"S"/]) he'll give you $10 back.**  [br/]
 
-So, you either lose $5 or win $5. To win at this game, you would need to pick the right card with a probability of 50% or more. Confident in your abilities to track his hands, you believe that will help you have a higher probability of picking the right card. So, you agree to the terms and in an instant he flips the cards over and shuffles the three cards multiple times, and stops, leaving you to select which card is the queen.
+So, you either lose $5 or win $5. Thus, to win the game, you would need to pick the right card with a **probability of 50% or more** for a positive expected value of your winnings. Confident in your abilities to track his hands, you believe that will help you have a higher probability of picking the right card. So, you agree to the terms and in an instant he flips the cards over and shuffles the three cards multiple times, and stops, leaving you to select which card is the queen.
 
 
 [aside]
@@ -62,13 +62,13 @@ So, skill in this game can be represented by an accuracy [Equation] \alpha[/Equa
 >the probability that you know the exact position of the winner card after the shuffle takes place. 
 
 Suppose we know that the cards initially  are ([card number:"2" suit:"S"/], [card number:"A" suit:"S"/], [card number:"3" suit:"S"/]). 
-So, the probabilities of the left , middle and right cards being [card number:"A" suit:"S"/] are (0,1,0).
+Written in a tuple, the probabilities of the left, middle, and right cards being the winner, [card number:"A" suit:"S"/], are (0,1,0), with the 1 in the middle representing 100% confidence that the winning card is there.
 Now, suppose you believe a shuffle happened between the middle and right cards with accuracy [Equation] \alpha[/Equation].
 The new probabilities would be [Equation](0,(1-\alpha)1+\alpha 0, \alpha1 + (1-\alpha)0)[/Equation]
 
 In general, if the initial probabilities were : [Equation](p_0, p_1, p_2)[/Equation] 
 
-And you believed a shuffle happened between the second and third cards, the new probabilities would be:
+And you believed a shuffle happened between the middle and right cards, the new probabilities would be:
 [Equation display:true]
 (p_0, (1-\alpha)p_1+\alpha p_2, (1-\alpha)p_2+\alpha p_1)
 [/Equation]
@@ -95,22 +95,23 @@ You have shuffled **[Display value:iter format:"d" /]** times.
 [br/]
 [button onClick:`if(points[points.length-1].y !== 1){ if (flipvalue == 1){flipvalue = 0}else{flipvalue = 1}; shufflevalue = 1}`]Flip[/button]
 [button onClick:`if(points[points.length-1].y !== 1){iter++;  shufflevalue = 0; shuffleIndex=iter}`]Shuffle[/button]
-[multiRiffle iter:iter points:points ]Shuffle (x10)[/multiRiffle]
-[p ]
-Shuffle Index: [Display value:`shuffleIndex.toFixed(0)` /] [br /] 
-[var name:"shuffleIndex" value:0 /]
-[Range value:shuffleIndex min:0 max:iter step:1 /]
-[/p]
+// [multiRiffle iter:iter points:points ]Shuffle (x10)[/multiRiffle]
+[button className:"clear" onClick:`{iter= 0; pts = []; probability = [0,1,0]; points = [{x:0,y:52}];flipvalue = 0; shufflevalue =1; shuffleIndex=0}`]Clear[/button]
+
 [/aside]
 
 [cardVis iterVar:iter points:points flipswitch:flipvalue shuffleswitch:shufflevalue probability:probability pts:pts accuracy:accuracy/]
 [var name:"shufflevalue" value:1 /]
 
-Here is a chart.
+Remember, when all probabilities drop under 50% marked by the red dashed line, you're expected to lose money!
 
 [aside]
-[button className:"clear" onClick:`{iter= 0; pts = []; probability = [0,1,0]; points = [{x:0,y:52}];flipvalue = 0; shufflevalue =1; shuffleIndex=0}`]Clear[/button]
 [barChart pts:pts shuffleIndex:shuffleIndex/]
+[p className:"slider-label"]
+**Show a different shuffle:** #[Display value:`shuffleIndex.toFixed(0)` /] [br /] 
+[var name:"shuffleIndex" value:0 /]
+[Range value:shuffleIndex min:0 max:iter step:1 /]
+[/p]
 [/aside]
 [positionChart iterVal:iter endPoints:endPoints probability:probability pts:pts accuracy:accuracy/]
 
@@ -121,7 +122,7 @@ So, you see that it only takes a few shuffles after which the probability of all
 
 ## Let's play with a higher accuracy
 
-Suppose you were indeed a person of great skill, possessing sharper eyes than most. Your accuracy would be around 0.8. Would that make a difference.
+Suppose you were indeed a person of great skill, possessing sharper eyes than most. Your accuracy would be around 0.8. Would that make a difference?
 
 [var name:"iter1" value:0 /]
 [var name:"flipvalue1" value:0 /]
@@ -137,21 +138,23 @@ You have shuffled **[Display value:iter1 format:"d" /]** times.
 [br/]
 [button onClick:`if (flipvalue1 == 1){flipvalue1 = 0}else{flipvalue1 = 1}; shufflevalue1 = 1`]Flip[/button]
 [button onClick:`console.log('rrrr');iter1++;  shufflevalue1 = 0; shuffleIndex1=iter1`]Shuffle[/button]
-[p ]
-Shuffle Index: [Display value:`shuffleIndex1.toFixed(0)` /] [br /] 
-[var name:"shuffleIndex1" value:0 /]
-[Range value:shuffleIndex1 min:0 max:iter1 step:1 /]
-[/p]
+// [multiRiffle iter:iter1 points:points ]Shuffle (x10)[/multiRiffle]
+[button className:"clear" onClick:`iter1= 0; pts1 = []; probability1 = [0,1,0]; points1 = [{x:0,y:52}];flipvalue1 = 0; shufflevalue1 =1;shuffleIndex1=0`]Clear[/button]
 [/aside]
 
 [cardVis iterVar:iter1 points:points1 flipswitch:flipvalue1 shuffleswitch:shufflevalue1 probability:probability1 pts:pts1 accuracy:accuracy1/]
 [var name:"shufflevalue1" value:1 /]
 
-Here is a chart.
+Remember, when all probabilities drop under 50% marked by the red dashed line, you're expected to lose money!
+
 
 [aside]
-[button className:"clear" onClick:`iter1= 0; pts1 = []; probability1 = [0,1,0]; points1 = [{x:0,y:52}];flipvalue1 = 0; shufflevalue1 =1;shuffleIndex1=0`]Clear[/button]
 [barChart pts:pts1 shuffleIndex:shuffleIndex1/]
+[p className:"slider-label"]
+**Show a different shuffle:** #[Display value:`shuffleIndex1.toFixed(0)` /] [br /] 
+[var name:"shuffleIndex1" value:0 /]
+[Range value:shuffleIndex1 min:0 max:iter1 step:1 /]
+[/p]
 [/aside]
 [positionChart iterVal:iter1 endPoints:endPoints1 probability:probability1 pts:pts1 accuracy:accuracy1/]
 
@@ -162,7 +165,7 @@ You see that regardless of your accuracy it only takes a few more shuffles until
 You can play more below by changing the accuracy below, restarting and trying new simulations.
 
 
-## Let's play with a variable accuracy
+## Your turn to experiment!
 
 
 [var name:"iter2" value:0 /]
@@ -180,21 +183,23 @@ You have shuffled **[Display value:iter2 format:"d" /]** times.
 [br/]
 [button onClick:`if (flipvalue2 == 1){flipvalue2 = 0}else{flipvalue2 = 1}; shufflevalue2 = 1`]Flip[/button]
 [button onClick:`console.log('rrrr');iter2++;  shufflevalue2 = 0; shuffleIndex2=iter2`]Shuffle[/button]
-[p ]
-Shuffle Index: [Display value:`shuffleIndex2.toFixed(0)` /] [br /] 
-[var name:"shuffleIndex2" value:0 /]
-[Range value:shuffleIndex2 min:0 max:iter2 step:1 /]
-[/p]
+// [multiRiffle iter:iter2 points:points ]Shuffle (x10)[/multiRiffle]
+[button className:"clear" onClick:`iter2= 0; pts2 = []; probability2 = [0,1,0]; points2 = [{x:0,y:52}];flipvalue2 = 0; shufflevalue2 =1;shuffleIndex2=0`]Clear[/button]
 [/aside]
 
 [cardVis iterVar:iter2 points:points2 flipswitch:flipvalue2 shuffleswitch:shufflevalue2 probability:probability2 pts:pts2 accuracy:accuracy2/]
 [var name:"shufflevalue2" value:1 /]
 
-Here is a chart.
+Remember, when all probabilities drop under 50% marked by the red dashed line, you're expected to lose money!
 
 [aside]
-[button className:"clear" onClick:`iter2= 0; pts2 = []; probability2 = [0,1,0]; points2 = [{x:0,y:52}];flipvalue2 = 0; shufflevalue2 =1;shuffleIndex2=0`]Clear[/button]
 [barChart pts:pts2 shuffleIndex:shuffleIndex2/]
+
+[p className:"slider-label"]
+**Show a different shuffle:** #[Display value:`shuffleIndex2.toFixed(0)` /] [br /] 
+[var name:"shuffleIndex2" value:0 /]
+[Range value:shuffleIndex2 min:0 max:iter2 step:1 /]
+[/p]
 [/aside]
 [positionChart iterVal:iter2 endPoints:endPoints2 probability:probability2 pts:pts2 accuracy:accuracy2/]
 

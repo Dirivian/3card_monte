@@ -22,11 +22,11 @@ class positionChart extends React.Component {
     return (
       <div className={"position-container"}>
         <svg className={"probability-line"}>
-          <line x1="0" y1="0" x2="1000" y2="0" transform="translate(70, 200)"  stroke="#DC3912" strokeWidth="2" strokeDasharray="10 4" />
+          <line x1="0" y1="0" x2="1000" y2="0" transform="translate(70, 150)"  stroke="#DC3912" strokeWidth="2" strokeDasharray="10 4" />
         </svg>
         <Chart
           width={'700px'}
-          height={'400px'}
+          height={'300px'}
           chartType="LineChart"
           loader={<div>Loading Chart</div>}
           data={ data }
