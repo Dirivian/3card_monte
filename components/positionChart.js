@@ -1,5 +1,4 @@
 import * as React from "react";
-import { render } from "react-dom";
 import { Chart } from "react-google-charts";
 
 class positionChart extends React.Component {
@@ -11,6 +10,8 @@ class positionChart extends React.Component {
       'Right Probability'
     ]];
     for (let i = 0; this.props.pts && i < this.props.pts.length; i++) {
+      console.log('from position');
+      console.log(this.props.pts);
       let point = [(i).toString()];
       point.push(this.props.pts[i]["p_0"]);
       point.push(this.props.pts[i]["p_1"]);
@@ -18,12 +19,10 @@ class positionChart extends React.Component {
 
       data.push(point);
     }
-    // console.log("--------------");
-    // console.log(data);
     return (
       <div className={"position-container"}>
         <svg className={"probability-line"}>
-          <line x1="0" y1="0" x2="1000" y2="0" transform="translate(70, 200)"  stroke="#DC3912" stroke-width="2" stroke-dasharray="10 4" />
+          <line x1="0" y1="0" x2="1000" y2="0" transform="translate(70, 200)"  stroke="#DC3912" strokeWidth="2" strokeDasharray="10 4" />
         </svg>
         <Chart
           width={'700px'}

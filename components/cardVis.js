@@ -129,7 +129,7 @@ class cardVis extends D3Component {
         if (props.iterVar == 1){
           if (Math.random()<0.5){var randCardIndex = 0}
             else{var randCardIndex = 2}
-        console.log(randCardIndex,234)  
+        // console.log(randCardIndex,234)  
         } 
         else{       
         var randCardIndex = Math.floor(Math.random() * cards.length);
@@ -274,25 +274,25 @@ class cardVis extends D3Component {
         
         // console.log(props.probability);
         
-         console.log(props.pts);
+        //  console.log(props.pts);
         // console.log('updateprops');
         
-        props.updateProps({
-          points: props.points.concat([{
-            x: newXValue,
-            y: newYValue
-          }])
-          ,
-          pts: props.pts.concat([{
-            p_0: props.probability[0],
-            p_1: props.probability[1],
-            p_2: props.probability[2]
-          }])
-        });
-        // Make sure you put this code in a conditional
-        // so that it doesn't loop infinitely
-        
-
+        if (this.props.fromShuffle) {
+          props.updateProps({
+            points: props.points.concat([{
+              x: newXValue,
+              y: newYValue
+            }])
+            ,
+            pts: props.pts.concat([{
+              p_0: props.probability[0],
+              p_1: props.probability[1],
+              p_2: props.probability[2]
+            }])
+          });
+          // Make sure you put this code in a conditional
+          // so that it doesn't loop infinitely
+        }
       }
     } else {
       propsUpdated = false;

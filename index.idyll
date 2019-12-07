@@ -181,7 +181,7 @@ You have shuffled **[Display value:iter2 format:"d" /]** times.
 [button onClick:`if (flipvalue2 == 1){flipvalue2 = 0}else{flipvalue2 = 1}; shufflevalue2 = 1`]Flip[/button]
 [button onClick:`console.log('rrrr');iter2++;  shufflevalue2 = 0; shuffleIndex2=iter2`]Shuffle[/button]
 [p ]
-Shuffle Index: [Display value:`shuffleIndex1.toFixed(0)` /] [br /] 
+Shuffle Index: [Display value:`shuffleIndex2.toFixed(0)` /] [br /] 
 [var name:"shuffleIndex2" value:0 /]
 [Range value:shuffleIndex2 min:0 max:iter2 step:1 /]
 [/p]
