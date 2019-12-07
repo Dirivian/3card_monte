@@ -8,7 +8,7 @@ const cardWidthMultiplier = 7.5;
 const cardHeightMultiplier = 10.5;
 const cardSize = 15;
 
-const cardPrimitives = ['2','A',  '3'];
+const cardPrimitives = ['2', 'A', '3'];
 const suits = ["♠"];
 let propsUpdated = false;
 
@@ -44,7 +44,7 @@ class cardVis extends D3Component {
       })
 
       .attr('y', function (d, i) {
-        if (1<2) {
+        if (1 < 2) {
           return height * (1 / 5) - 16;
         }
         if (i > (cards.length - 1) * (1 / 4) && i < (cards.length - 1) * (2 / 4)) {
@@ -84,7 +84,7 @@ class cardVis extends D3Component {
       .attr('class', 'card-text')
       .attr('x', function (d, i) { return 35 + i % 13 * 135; })
       .attr('y', function (d, i) {
-        if (1<2) {
+        if (1 < 2) {
           return height * (1 / 5);
         }
         if (i > (cards.length - 1) * (1 / 4) && i < (cards.length - 1) * (2 / 4)) {
@@ -106,7 +106,7 @@ class cardVis extends D3Component {
           if (d === 'A♠') {
             return '#f44336';
           }
-          else{
+          else {
             return 'black';
           }
         }
@@ -122,19 +122,19 @@ class cardVis extends D3Component {
       if (props.iterVar === 0) {
         cards = makeCards(suits, cardPrimitives);
       }
-      
+
       let lastPoint = props.points[props.points.length - 1];
 
-      if (lastPoint.y !== 1) {  
-        if (props.iterVar == 1){
-          if (Math.random()<0.5){var randCardIndex = 0}
-            else{var randCardIndex = 2}
-        // console.log(randCardIndex,234)  
-        } 
-        else{       
-        var randCardIndex = Math.floor(Math.random() * cards.length);
+      if (lastPoint.y !== 1) {
+        if (props.iterVar == 1) {
+          if (Math.random() < 0.5) { var randCardIndex = 0 }
+          else { var randCardIndex = 2 }
+          // console.log(randCardIndex,234)  
+        }
+        else {
+          var randCardIndex = Math.floor(Math.random() * cards.length);
 
-      }
+        }
 
         propsUpdated = true;
 
@@ -143,18 +143,18 @@ class cardVis extends D3Component {
         function riffle(cards, randCardIndex) {
 
 
-          if (randCardIndex == 0){
-            var index_1 =1
-            var index_2 =2
-                      }
-          else if (randCardIndex == 1){
-            var index_1 =0
-            var index_2 =2
-                      }
-          else if(randCardIndex == 2){
-            var index_1 =0
-            var index_2 =1
-           }
+          if (randCardIndex == 0) {
+            var index_1 = 1
+            var index_2 = 2
+          }
+          else if (randCardIndex == 1) {
+            var index_1 = 0
+            var index_2 = 2
+          }
+          else if (randCardIndex == 2) {
+            var index_1 = 0
+            var index_2 = 1
+          }
 
 
           let a = cards[index_1]
@@ -163,136 +163,135 @@ class cardVis extends D3Component {
           return cards;
         }
 
-        if (props.shuffleswitch == 0){
-            console.log('shuffling')
+        if (props.shuffleswitch == 0) {
+          console.log('shuffling')
         }
-        if (props.flipswitch == 1){
+        if (props.flipswitch == 1) {
           this.svg.selectAll('.card')
-          .data(cards)
-          .transition()
-          .duration(1000)
-          .attr('fill', 'teal')
+            .data(cards)
+            .transition()
+            .duration(1000)
+            .attr('fill', 'teal')
 
-        this.svg.selectAll('.card-text')
-          .data(cards)
-          .transition()
-          .duration(1000)
-          .text(function (d) { return d; })
-          .style( "opacity", 0 )
-          }
-        else{
+          this.svg.selectAll('.card-text')
+            .data(cards)
+            .transition()
+            .duration(1000)
+            .text(function (d) { return d; })
+            .style("opacity", 0)
+        }
+        else {
           this.svg.selectAll('.card')
-          .data(cards)
-          .transition()
-          .duration(1000)
-          .attr('fill', 'transparent')
+            .data(cards)
+            .transition()
+            .duration(1000)
+            .attr('fill', 'transparent')
 
-        this.svg.selectAll('.card-text')
-          .data(cards)
-          .transition()
-          .duration(1000)
-          .text(function (d) { return d; })
-          .style( "opacity", 1 )
+          this.svg.selectAll('.card-text')
+            .data(cards)
+            .transition()
+            .duration(1000)
+            .text(function (d) { return d; })
+            .style("opacity", 1)
         }
 
-      if (props.iterVar === 1) {
-        var probability = [0,1,0];
-        // console.log(probability)
-      }
-        if (props.shuffleswitch == 0){
+        if (props.iterVar === 1) {
+          var probability = [0, 1, 0];
+          // console.log(probability)
+        }
+        if (props.shuffleswitch == 0) {
           // console.log(cards)
           let randCardIndex = Math.floor(Math.random() * cards.length);
-          if (randCardIndex == 0){
-            var index_1 =1
-            var index_2 =2
-                      }
-          else if (randCardIndex == 1){
-            var index_1 =0
-            var index_2 =2
-                      }
-          else if(randCardIndex == 2){
-            var index_1 =0
-            var index_2 =1
-           }
+          if (randCardIndex == 0) {
+            var index_1 = 1
+            var index_2 = 2
+          }
+          else if (randCardIndex == 1) {
+            var index_1 = 0
+            var index_2 = 2
+          }
+          else if (randCardIndex == 2) {
+            var index_1 = 0
+            var index_2 = 1
+          }
           var acc = this.props.accuracy
           this.svg.selectAll('.card')
-                  .data(cards)
-                  .transition()
-                  .duration(acc*1000)
-                  .attr('x', function (d, i) {
-                    if (i == randCardIndex)
-                      {return 30 + i % 13 * 135;}
-                    else if (i == index_1){
-                       return  30 + index_2 % 13 * 135;
-                        }
-                    else if (i == index_2){
-                       return  30 + index_1 % 13 * 135;
-                            }
-                        })
+            .data(cards)
+            .transition()
+            .duration(acc * 1000)
+            .attr('x', function (d, i) {
+              if (i == randCardIndex) { return 30 + i % 13 * 135; }
+              else if (i == index_1) {
+                return 30 + index_2 % 13 * 135;
+              }
+              else if (i == index_2) {
+                return 30 + index_1 % 13 * 135;
+              }
+            })
 
-                this.svg.selectAll('.card-text')
-                  .data(cards)
-                  .transition()
-                  .duration(acc*1000)
-                  .text(function (d) { return d; })
-                  .attr('x', function (d, i) {
-                    if (i == randCardIndex)
-                      {return 35 + i % 13 * 135;}
-                    else if (i == index_1){
-                       return  35 + index_2 % 13 * 135;
-                        }
-                    else if (i == index_2){
-                       return  35 + index_1 % 13 * 135;
-                            }
-                        })
+          this.svg.selectAll('.card-text')
+            .data(cards)
+            .transition()
+            .duration(acc * 1000)
+            .text(function (d) { return d; })
+            .attr('x', function (d, i) {
+              if (i == randCardIndex) { return 35 + i % 13 * 135; }
+              else if (i == index_1) {
+                return 35 + index_2 % 13 * 135;
+              }
+              else if (i == index_2) {
+                return 35 + index_1 % 13 * 135;
+              }
+            })
           cards = riffle(cards, randCardIndex)
           this.svg.selectAll('.card')
-                  .data(cards)
+            .data(cards)
 
-                  .attr('x', function (d, i)   {return 30 + i % 13 * 135;}
-                    )
+            .attr('x', function (d, i) { return 30 + i % 13 * 135; }
+            )
 
-                this.svg.selectAll('.card-text')
-                  .data(cards)
-                  .text(function (d) { return d; })
-                  .attr('x', function (d, i) {
-                    return 35 + i % 13 * 135;}
-                        )
-        var prob_1 = props.probability[index_1]
-        var prob_2 = props.probability[index_2]
+          this.svg.selectAll('.card-text')
+            .data(cards)
+            .text(function (d) { return d; })
+            .attr('x', function (d, i) {
+              return 35 + i % 13 * 135;
+            }
+            )
+          var prob_1 = props.probability[index_1]
+          var prob_2 = props.probability[index_2]
 
-        props.probability[index_1] = (1-acc)*prob_1 + acc*prob_2
-        props.probability[index_2] = (1-acc)*prob_2 + acc*prob_1
+          props.probability[index_1] = (1 - acc) * prob_1 + acc * prob_2
+          props.probability[index_2] = (1 - acc) * prob_2 + acc * prob_1
 
 
 
-          }
+        }
 
         const newXValue = props.iterVar;
         const newYValue = cards.indexOf('K♦') + 1;
 
-        
+
         // console.log(props.probability);
-        
+
         //  console.log(props.pts);
         // console.log('updateprops');
-        
-        if (this.props.fromShuffle) {
-          props.updateProps({
-            points: props.points.concat([{
-              x: newXValue,
-              y: newYValue
-            }])
-            ,
-            pts: props.pts.concat([{
-              p_0: props.probability[0],
-              p_1: props.probability[1],
-              p_2: props.probability[2]
-            }])
-          });
-          // Make sure you put this code in a conditional
-          // so that it doesn't loop infinitely
-        }
+
+        props.updateProps({
+          points: props.points.concat([{
+            x: newXValue,
+            y: newYValue
+          }])
+          ,
+          pts: props.pts.concat([{
+            p_0: props.probability[0],
+            p_1: props.probability[1],
+            p_2: props.probability[2]
+          }])
+        });
+        // Make sure you put this code in a conditional
+        // so that it doesn't loop infinitely
+
+
       }
     } else {
       propsUpdated = false;
