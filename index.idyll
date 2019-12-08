@@ -64,13 +64,13 @@ So, skill in this game can be represented by an accuracy [Equation] \alpha[/Equa
 Suppose we know that the cards initially  are ([card number:"2" suit:"S"/], [card number:"A" suit:"S"/], [card number:"3" suit:"S"/]). 
 Written in a tuple, the probabilities of the left, middle, and right cards being the winner, [card number:"A" suit:"S"/], are (0,1,0), with the 1 in the middle representing 100% confidence that the winning card is there.
 Now, suppose you believe a shuffle happened between the middle and right cards with accuracy [Equation] \alpha[/Equation].
-The new probabilities would be [Equation](0,(1-\alpha)1+\alpha 0, \alpha1 + (1-\alpha)0)[/Equation]
+The new probabilities would be [Equation](0,(1-\alpha) \cdot 1+\alpha \cdot 0, \alpha \cdot 1 + (1-\alpha) \cdot 0)[/Equation]
 
 In general, if the initial probabilities were : [Equation](p_0, p_1, p_2)[/Equation] 
 
 And you believed a shuffle happened between the middle and right cards, the new probabilities would be:
 [Equation display:true]
-(p_0, (1-\alpha)p_1+\alpha p_2, (1-\alpha)p_2+\alpha p_1)
+(p_0, (1-\alpha) \cdot p_1+\alpha \cdot p_2, (1-\alpha) \cdot p_2+\alpha \cdot p_1)
 [/Equation]
 
 
