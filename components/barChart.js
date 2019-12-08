@@ -19,14 +19,14 @@ class barChart extends React.Component {
     
     if (this.props.pts && this.props.pts.length === 0) {
       data.push(['Left', 0, '#FF9900', null]);
-      data.push(['Middle', 1, '#3366CC', null]);
-      data.push(['Right', 0, '#109618', null]);
+      data.push(['Middle', 1, '#DC3912', null]);
+      data.push(['Right', 0, '#FF9900', null]);
     }
     else if (this.props.pts) {
       console.log('from bar');
       console.log(this.props.pts);
       var idx = this.props.shuffleIndex;
-      data.push(['Left Probability', this.props.pts[idx]["p_0"], '#FF9900', null]);
+      data.push(['Left Probability', this.props.pts[idx]["p_0"], '#3366CC', null]);
       data.push(['Middle Probability', this.props.pts[idx]["p_1"], '#3366CC', null]);
       data.push(['Right Probability', this.props.pts[idx]["p_2"], '#109618', null]);
     }
