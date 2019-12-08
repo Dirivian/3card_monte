@@ -59,7 +59,7 @@ class barChart extends React.Component {
               duration: 400,
               easing: 'out',
             },
-            chartArea: { width: "80%", height: "80%" },
+            chartArea: { width: "80%", height: "70%" },
           }}
           // For tests
           rootProps={{ 'data-testid': '6' }}

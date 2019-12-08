@@ -42,7 +42,7 @@ class positionChart extends React.Component {
               title: 'Probability',
               format: 'percent',
             },
-            chartArea: { width: "80%", height: "80%" },
+            chartArea: { width: "80%", height: "70%" },
             pointSize: 8,
             pointShape: 'circle',
             animation:{
