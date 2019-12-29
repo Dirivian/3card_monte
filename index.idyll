@@ -204,3 +204,12 @@ Remember, when all probabilities drop under 50% marked by the red dashed line, y
 [positionChart iterVal:iter2 endPoints:endPoints2 probability:probability2 pts:pts2 accuracy:accuracy2/]
 
 
+
+Have fun playing!
+
+### Acknowledgements
+* [a href:"https://idyll-lang.org/"]Idyll[/a] is the tool used to create interactive stories like these.
+* The layout of the article was inspired by and adapted from the article on card shuffling by Fred Hohman  [a href:"https://fredhohman.com/card-shuffling/"]"The math of shuffling cards"[/a]. Some parts of the code for the visualization of the cards has been adapted from the [a href:"https://github.com/fredhohman/card-shuffling"]code [/a] written by Fred Hohman.
+* Our code can be found [a href:"https://github.com/Dirivian/3card_monte"] here[/a].
+
+
