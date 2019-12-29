@@ -1,6 +1,4 @@
-# The Math of Shuffling Cards
-*Riffling from factory order to complete randomness.*
+# How to win at the 3 card monte?
 
-Code for [interactive article on card shuffling](http://fredhohman.com/card-shuffling/).
 
-Written using [Idyll](https://idyll-lang.org/).
+Interactive visualization here - https://dirivian.github.io/pages/monte/index
