@@ -1,7 +1,7 @@
 [meta
   title:"Winning 3-card monte"
   description:"How your skill is irrelevant at the 3 card monte."
-  shareImageUrl:"https://fredhohman.com/card-shuffling/static/images/share.png"
+  shareImageUrl:"https://www.behance.net/gallery/22841167/SHELL-GAME"
   shareImageWidth:"1600"
   shareImageHeight:"800" /]
 
@@ -11,17 +11,12 @@
   author:"Jithin George, Alex Fang, Richard Yu"
  /]
 
-[Analytics google:"UA-42146340-1" /]
+[Analytics google:"UA-56135211-6" /]
 
 
-// [aside]
-// Smooshing a deck is arguably more fun.
-// [image style:`{width: '100%'}` src:"static/images/smoosh.gif" /]
-// [/aside]
-
-[image style:`{width: '100%'}` src:"static/images/monte.gif" /]
 
 
+[image style:`{width: '100%'}` src: "https://i.imgur.com/Jh81xFP.gif?noredirect" /]
 
 
 
@@ -211,5 +206,6 @@ Have fun playing!
 * [a href:"https://idyll-lang.org/"]Idyll[/a] is the tool used to create interactive stories like these.
 * The layout of the article was inspired by and adapted from the article on card shuffling by Fred Hohman  [a href:"https://fredhohman.com/card-shuffling/"]"The math of shuffling cards"[/a]. Some parts of the code for the visualization of the cards has been adapted from the [a href:"https://github.com/fredhohman/card-shuffling"]code [/a] written by Fred Hohman.
 * Our code can be found [a href:"https://github.com/Dirivian/3card_monte"] here[/a].
+* The cover image was obtained from Creative Commons. It has the following attribution: [a href:"https://www.behance.net/gallery/22841167/SHELL-GAME"]"SHELL GAME"[/a] by Julia Boden is licensed under [a href:"https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=ccsearch&atype=rich"]CC BY-NC-ND 4.0[/a].
 
 
